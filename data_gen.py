@@ -79,7 +79,6 @@ def get_genres(genres: list[str]) -> tuple[bg.UsersReadDict, AllBooksDict]:
     for genre in genres:
         users_read_multiple.append(get_cleaned_data(f'users_read/{genre}.json'))
         all_books_multiple.append(get_cleaned_data(f'books/books_{genre}.json'))
-    print('Retrieved all books and users, merging...')
     # merge the dictionaries
     users_read = users_read_multiple.pop()
     all_books = all_books_multiple.pop()
@@ -87,7 +86,7 @@ def get_genres(genres: list[str]) -> tuple[bg.UsersReadDict, AllBooksDict]:
     for i in range(0, len(users_read_multiple)):
         users_read.update(users_read_multiple[i])
         all_books.update(all_books_multiple[i])
-
+    print('Retrieved all books and users...')
     return (users_read, all_books)
 
 # def convert_set(users_books: dict[bg.UserID, list[bg.BookID]]) -> dict[bg.UserID, set[bg.BookID]]:
