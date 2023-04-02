@@ -8,7 +8,7 @@ import data_gen
 
 def run():
     """creates a RunBookNetwork instance"""
-    runtime = rt.RunBookNetwork(['comics_graphic, fantasy_paranormal'])
+    runtime = rt.RunBookNetwork(['comics_graphic', 'fantasy_paranormal'])
     print('hi')
 
 
