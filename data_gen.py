@@ -92,21 +92,20 @@ def get_genres(genres: list[str]) -> tuple[bg.UsersReadDict, AllBooksDict]:
         users_read_multiple.append(get_cleaned_data(f'users_read/{genre}.json'))
         all_books_multiple.append(get_cleaned_data(f'books/books_{genre}.json'))
     # merge the dictionaries
-    users_read = users_read_multiple.pop()
-    all_books = all_books_multiple.pop()
+    users_read = {}
+    all_books = {}
 
     for i in range(0, len(users_read_multiple)):
-        users_read.update(users_read_multiple[i])
+        # merge all the users_read datasets together
+        for u_id in users_read_multiple[i]:
+            if u_id not in users_read:  # we can set the read books dict directly
+                users_read[u_id] = users_read_multiple[i][u_id]
+            else:  # we must mutate the read books dict, as it already has information we don't want to overwrite
+                users_read[u_id].update(users_read_multiple[i][u_id])
+
+        # the consequences of the books datasets overwriting is not important, because even if a book appears twice, in
+        # two different genres, it still has the same metadata
         all_books.update(all_books_multiple[i])
+
     print('Retrieved all books and users...')
     return (users_read, all_books)
-
-# def convert_set(users_books: dict[bg.UserID, list[bg.BookID]]) -> dict[bg.UserID, set[bg.BookID]]:
-#     """Given a mapping between user IDs and the books they have read, return an equivalent mapping, but from
-#     ID to set instead."""
-#     users_books_set = {}
-#
-#     for uid in users_books:
-#         users_books_set[uid] = set(users_books[uid])
-#
-#     return users_books_set
