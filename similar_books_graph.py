@@ -89,7 +89,7 @@ class BookNetwork:
         BookNetwork containing every user in the 'reviews' dataset.
 
         Preconditions:
-            - similar is a list of user_ids, all of which are in the users_read dict
+            - all(user in users_read for user in self.similar)
         """
         self.users = {}
         self.books = {}
