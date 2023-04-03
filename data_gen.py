@@ -10,9 +10,9 @@ Copyright and Usage Information
 
 This file is Copyright (c) 2023 Ethan Chan, Ernest Yuen, Alyssa Lu, and Kelsie Fung.
 """
-import similar_books_graph as bg
 from typing import Any
 import json
+import similar_books_graph as bg
 
 AllBooksDict = dict[bg.BookID, dict[str, Any]]
 
@@ -109,3 +109,17 @@ def get_genres(genres: list[str]) -> tuple[bg.UsersReadDict, AllBooksDict]:
 
     print('Retrieved all books and users...')
     return (users_read, all_books)
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True)
+
+    import python_ta
+
+    python_ta.check_all(config={
+        'extra-imports': ['similar_books_graph', 'typing', 'json'],
+        'allowed-io': ['get_users', 'clean_books', 'get_cleaned_data', 'get_genres'],
+        'max-line-length': 120,
+        'disable': ['E9992', 'E9997']
+    })

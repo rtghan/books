@@ -268,7 +268,7 @@ if __name__ == '__main__':
     import python_ta
 
     python_ta.check_all(config={
-        'extra-imports': ['__future__', 'typing', 'random'],  # the names (strs) of imported modules
-        'allowed-io': [],  # the names (strs) of functions that call print/open/input
-        'max-line-length': 120
+        'extra-imports': ['__future__', 'typing', 'random'],
+        'max-line-length': 120,
+        'disable': ['E9992', 'E9997']
     })
