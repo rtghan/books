@@ -1,3 +1,14 @@
+"""CSC111 Course Project:  Books On Books On Books
+
+===============================
+
+This module contains a collection of Python classes and functions to represent a network of books and users.
+
+Copyright and Usage Information
+===============================
+
+This file is Copyright (c) 2023 Ethan Chan, Ernest Yuen, Alyssa Lu, and Kelsie Fung.
+"""
 from __future__ import annotations
 from typing import Callable
 import random
@@ -25,7 +36,7 @@ class Node:
         A book-only statistic that records the average rating of all the users connected to it
 
     Representation Invariants:
-    - self.is_user true if and only if all connected nodes are books (is_user false for those connected)
+    - self.is_user is True == all(node.is_user is False for node in self.connected)
     """
     is_user: bool
     obj_id: UserID | BookID

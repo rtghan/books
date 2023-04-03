@@ -1,3 +1,15 @@
+"""CSC111 Course Project:  Books On Books On Books
+
+===============================
+
+This module contains a collection of Python functions for cleaning and processing book review data and book metadata,
+and for generating a graph that represents relationships between books based on user ratings.
+
+Copyright and Usage Information
+===============================
+
+This file is Copyright (c) 2023 Ethan Chan, Ernest Yuen, Alyssa Lu, and Kelsie Fung.
+"""
 import similar_books_graph as bg
 from typing import Any
 import json
