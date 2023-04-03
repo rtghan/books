@@ -139,8 +139,8 @@ class BookNetwork:
             The most popular books are the ones with the most connections, though they may not have the best ratings.
 
             Rating Based:
-            Since the rating is based on the users in the graph, and not the book's true rating on GoodReads, we hope that
-            it will reflect 'a rating by users of similar taste'.
+            Since the rating is based on the users in the graph, and not the book's true rating on GoodReads, we hope
+            that it will reflect 'a rating by users of similar taste'.
         """
         # get a list of all the book Node objects
         book_lst = list(self.books.values())
@@ -179,7 +179,7 @@ class BookNetwork:
         # if the call wants all or more of the (unrecommended) books that are left in the network, simply
         # return all the available books
         if n >= len(book_id_lst) - len(self.used):
-            return [b_id for b_id in book_id_lst]
+            return book_id_lst
 
         # otherwise, randomly pick n books
         recommended = []
@@ -263,3 +263,16 @@ class BookNetwork:
 
             # remove the book from the graph
             del self.books[b_id]
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True)
+
+    import python_ta
+
+    python_ta.check_all(config={
+        'extra-imports': ['__future__', 'typing', 'random'],  # the names (strs) of imported modules
+        'allowed-io': [],  # the names (strs) of functions that call print/open/input
+        'max-line-length': 120
+    })
