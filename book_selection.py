@@ -1,3 +1,15 @@
+"""CSC111 Course Project:  Books On Books On Books
+
+===============================
+
+This module contains a Python class that enables the user interface to run a simulation of the BookNetwork.
+
+Copyright and Usage Information
+===============================
+
+This file is Copyright (c) 2023 Ethan Chan, Ernest Yuen, Alyssa Lu, and Kelsie Fung.
+"""
+
 import similar_books_graph as bg
 import data_gen
 
