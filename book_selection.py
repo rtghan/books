@@ -80,28 +80,3 @@ class RunBookNetwork:
             return self.book_network.get_books_by_statistic(lambda book: len(book.connected))
         else:
             return self.book_network.get_books_by_random()
-
-
-# testing code
-# inp = 'exit'
-# # user interaction loop
-# while inp != 'exit':
-#     recommended = []
-#     inp = input('How would you like to select the books?')
-#
-#     if inp.lower() == 'rating':
-#         recommended = book_network.get_books_by_statistic(rating_metric)
-#
-#     elif inp.lower() == 'popularity':
-#         recommended = book_network.get_books_by_statistic(lambda book: len(book.connected))
-#
-#     else:
-#         recommended = book_network.get_books_by_random()
-#
-#     print([(book_network.books[b_id].rating, b_id) for b_id in recommended])
-#     print([all_books[bid]['title'] for bid in recommended])
-#     inp = int(input('enter the index of the book you do not like'))
-#
-#     dissimilar_users = book_network.prune([recommended[inp]])
-#     print(f'dissimilar users: {dissimilar_users}')
-#     inp = input()
