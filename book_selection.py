@@ -32,7 +32,12 @@ class RunBookNetwork:
     users_read: bg.UsersReadDict
 
     def __init__(self, genres: list[str]) -> None:
-        """Initialise a RunBookNetwork, which initialises a BookNetwork with books from the given genres. Additionally
+        """Initialise a RunBookNetwork, which then initialises a BookNetwork with books from the given genres.
+        Additionally, store the all_books and users_read dict objects relevant to the BookNetwork.
+
+        Preconditions:
+            - all(genre in ['comics_graphic', 'fantasy_paranormal', 'mystery_thriller_crime',
+                  'romance', 'young_adult'] for genre in genres)
         """
         self.users_read, self.all_books = data_gen.get_genres(genres)
 
@@ -58,6 +63,20 @@ class RunBookNetwork:
         n = len(book.connected)
 
         return (w * m + n * book.rating) / (w + n)
+
+    def get_recommended_books(self, method: str) -> list[bg.BookID]:
+        """Get the recommended books from the book network given a certain method (random, popularity, or rating)
+
+        Preconditions:
+        - method.lower() in ['rating', 'popularity', 'random']
+        """
+        if method == 'rating':
+            return self.book_network.get_books_by_statistic(self.rating_metric)
+        elif method == 'popularity':
+            return self.book_network.get_books_by_statistic(lambda book: len(book.connected))
+        else:
+            return self.book_network.get_books_by_random()
+
 
 # testing code
 # inp = 'exit'

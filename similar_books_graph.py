@@ -131,7 +131,7 @@ class BookNetwork:
     def __str__(self) -> str:
         return f'Books: {self.books}\nUsers: {self.users}'
 
-    def get_books_by_statistic(self, metric: Callable, n: int = 4) -> list[BookID]:
+    def get_books_by_statistic(self, metric: Callable, n: int = 3) -> list[BookID]:
         """Select the books in BookNetwork that return the highest metrics based on some statistic (popularity, or
         rating), and return a list of them (to the client for them to evaluate, so our book network may evolve to
         better reflect their tastes).
@@ -171,7 +171,7 @@ class BookNetwork:
 
         return recommended
 
-    def get_books_by_random(self, n: int = 4) -> list[BookID]:
+    def get_books_by_random(self, n: int = 3) -> list[BookID]:
         """Select n random books, and return a list of them (to the client for them to evaluate).
         """
         book_id_lst = list(self.books.keys())
