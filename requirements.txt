@@ -1,0 +1,7 @@
+# CSC111 Final Project Requirements
+
+# Testing and code checking
+python-ta~=2.4.0
+
+# Display images in the GUI
+Pillow~=9.5.0
