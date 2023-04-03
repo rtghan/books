@@ -1,3 +1,15 @@
+"""CSC111 Course Project:  Books On Books On Books
+
+===============================
+
+This is the main module that contains a collection of Python classes and functions needed to run the whole program.
+
+Copyright and Usage Information
+===============================
+
+This file is Copyright (c) 2023 Ethan Chan, Ernest Yuen, Alyssa Lu, and Kelsie Fung.
+"""
+
 from tkinter import *
 from tkinter import ttk
 from urllib.request import urlopen
