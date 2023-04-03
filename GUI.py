@@ -1,11 +1,9 @@
 from tkinter import *
 from tkinter import ttk
 from urllib.request import urlopen
-from PIL import Image, ImageTk
-
+from PIL import ImageTk
 import book_selection as rb
 import similar_books_graph as bg
-import data_gen
 
 
 class BookSetup:
