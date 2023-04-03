@@ -28,7 +28,7 @@ class Node:
     Instance Attributes
     - is_user:
         Whether self is represents a user (giving a review), or a book
-    - id:
+    - obj_id:
         The book/user id
     - connected:
         A dictionary containing all the nodes connected to self, mapping from their id to the actual Node object
@@ -77,7 +77,8 @@ class BookNetwork:
         we show the user, as that would make the development of the network much slower.
 
     Representation Invariants:
-    - The key for each object in user and books is the same as its obj_id
+    - all(i == i.obj_id for i in self.users)
+    - all(j == j.obj_id for j in self.books)
     """
     users: dict[BookID, Node]
     books: dict[BookID, Node]
