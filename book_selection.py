@@ -62,6 +62,10 @@ class RunBookNetwork:
         m = float(self.all_books[book.obj_id]['average_rating'])
         n = len(book.connected)
 
+        # still, we want books to have at least 10 ratings
+        if n < 10:
+            return 0
+
         return (w * m + n * book.rating) / (w + n)
 
     def get_recommended_books(self, method: str) -> list[bg.BookID]:

@@ -240,10 +240,6 @@ class BookNetwork:
                 # remove its connection to this node
                 del book.connected[u_id]
 
-                # # if it has no more connections, remove it from the graph
-                # if len(book.connected) == 0:
-                #     del self.books[book_id]
-
             # remove the user from the graph
             del self.users[u_id]
 
