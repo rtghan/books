@@ -25,7 +25,7 @@ class Node:
         A book-only statistic that records the average rating of all the users connected to it
 
     Representation Invariants:
-    - self.is_user true if and only if all connected nodes are books (is_user false for those connected)
+    - self.is_user == all(node.is_user is False for node in self.connected)
     """
     is_user: bool
     obj_id: UserID | BookID
