@@ -42,12 +42,12 @@ class RunBookNetwork:
 
     def rating_metric(self, book: bg.Node) -> float:
         """This is a function that may be passed to the get_books_by_statistic() method , that calculates the rating of
-        each book while trying to take into account the number of ratings as well, since simply returning the average_rating
-        would favor books with low numbers of ratings who have a few high values (e.g. a book with only one rating of 5 vs.
-        4.5 average over 80 ratings).
+        each book while trying to take into account the number of ratings as well, since simply returning the
+        average_rating would favor books with low numbers of ratings who have a few high values (e.g. a book with only
+        one rating of 5 vs. 4.5 average over 80 ratings).
 
-        The way the number of ratings is taken into account is through the Bayesian average, which essentially factors in
-        outside knowledge (i.e. some pre-existing rating/average for the book) to balance the number of ratings.
+        The way the number of ratings is taken into account is through the Bayesian average, which essentially factors
+        in outside knowledge (i.e. some pre-existing rating/average for the book) to balance the number of ratings.
         The formula is, where w represents the weight, and m the numeric value of the already-known statistic:
                 bayesian_average = (w * m + sum of all n ratings) / (w + n)
 
